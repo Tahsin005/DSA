@@ -4,7 +4,7 @@ int main(){
     vector<int> v={1,2,3,4,5};
     vector<int>v2={101,102,103,109};
     // v.insert(v.begin()+2,69);
-    v.insert(v.begin()+2,v2.begin(),v2.end());
+    v.insert(v.end(),v2.begin(),v2.end());
     for(int x: v){
         cout<<x<<" ";
     }
