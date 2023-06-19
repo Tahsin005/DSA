@@ -30,7 +30,7 @@ void print_reverse(Node* tail){
 void insert_at_position(Node* head,int pos,int value){
     Node* newNode = new Node(value);
     Node* temp = head;
-    for(int i=0;i<pos-1;i++){
+    for(int i=1;i<pos-1;i++){
         temp = temp->next;
     }
     newNode->next=temp->next;
@@ -64,7 +64,7 @@ int main(){
 
     int pos,value;
     cin>>pos>>value;
-    if(pos>=size(head)){
+    if(pos>size(head)){
         cout<<"Invalid"<<endl;
     }
     else{
