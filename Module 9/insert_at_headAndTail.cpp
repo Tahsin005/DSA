@@ -39,7 +39,7 @@ void insert_at_position(Node* head,int pos,int value){
     newNode->prev=temp;
 
 }
-int size(Node* head){
+int get_size(Node* head){
     Node* temp = head;
     int count=0;
     while(temp != NULL){
@@ -74,36 +74,40 @@ void insert_tail(Node* &head,Node* &tail,int value){
     tail=tail->next;
 }
 int main(){
-    // Node* head = NULL;
-    // Node* tail = NULL;
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* b = new Node(30);
-    Node* c = new Node(40);
-    Node* tail = c;
+    Node* head = NULL;
+    Node* tail = NULL;
+    // Node* head = new Node(10);
+    // Node* a = new Node(20);
+    // Node* b = new Node(30);
+    // Node* c = new Node(40);
+    // Node* tail = c;
 
-    head->next=a;
-    a->prev=head;
-    a->next=b;
-    b->prev=a;
-    b->next=c;
-    c->prev=b;
-
-    int pos,value;
-    cin>>pos>>value;
-    if(pos==0){
-        insert_head(head,tail,value);
+    // head->next=a;
+    // a->prev=head;
+    // a->next=b;
+    // b->prev=a;
+    // b->next=c;
+    // c->prev=b;
+    int q;
+    cin>>q;
+    while(q--){
+        int pos,value;
+        cin>>pos>>value;
+        if(pos==0){
+            insert_head(head,tail,value);
+        }
+        else if(pos == get_size(head)){
+            insert_tail(head,tail,value);
+        }
+        else if(pos>=get_size(head)){
+            cout<<"Invalid"<<endl;
+        }
+        else{
+            insert_at_position(head,pos,value);
+        }
+        print_normal(head);
+        print_reverse(tail);
     }
-    else if(pos == size(head)){
-        insert_tail(head,tail,value);
-    }
-    else if(pos>=size(head)){
-        cout<<"Invalid"<<endl;
-    }
-    else{
-        insert_at_position(head,pos,value);
-    }
-    print_normal(head);
-    print_reverse(tail);
+    
     return 0;
 }
