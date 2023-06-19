@@ -74,20 +74,20 @@ void insert_tail(Node* &head,Node* &tail,int value){
     tail=tail->next;
 }
 int main(){
-    // Node* head = new Node(10);
-    Node* head = NULL;
-    Node* tail = NULL;
-    // Node* a = new Node(20);
-    // Node* b = new Node(30);
-    // Node* c = new Node(40);
-    // Node* tail = c;
+    // Node* head = NULL;
+    // Node* tail = NULL;
+    Node* head = new Node(10);
+    Node* a = new Node(20);
+    Node* b = new Node(30);
+    Node* c = new Node(40);
+    Node* tail = c;
 
-    // head->next=a;
-    // a->prev=head;
-    // a->next=b;
-    // b->prev=a;
-    // b->next=c;
-    // c->prev=b;
+    head->next=a;
+    a->prev=head;
+    a->next=b;
+    b->prev=a;
+    b->next=c;
+    c->prev=b;
 
     int pos,value;
     cin>>pos>>value;
