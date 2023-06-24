@@ -1,0 +1,1 @@
+It is not basic data structure like array, vector, list. It is a abstract data structure. It is higher level data structure.
