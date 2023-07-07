@@ -23,7 +23,9 @@ int main(){
         cin>>x;
         v.push_back(x);
     }
+    reverse(v.begin(),v.end());
     vector<int> result = nge(v);
+    reverse(result.begin(),result.end());
     for(int i = 0; i < result.size(); i++){
         cout<<result[i]<<" ";
     }

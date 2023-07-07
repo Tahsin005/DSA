@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int> nge(vector<int> &arr){
-    int n = arr.size();
+vector<int> nse(vector<int> &v){
+    int n = v.size();
     vector<int> output(n,-1);
     stack<int> idx;
     idx.push(0);
     for(int i = 1; i < n; i++){
-        while(not idx.empty() and arr[i] > arr[idx.top()]){
-            output[idx.top()] = arr[i];
+        if(not idx.empty() and v[i] < v[idx.top()]){
+            output[idx.top()] = v[i];
             idx.pop();
-        } 
+        }
         idx.push(i);
     }
     return output;
@@ -23,7 +23,7 @@ int main(){
         cin>>x;
         v.push_back(x);
     }
-    vector<int> result = nge(v);
+    vector<int> result = nse(v);
     for(int i = 0; i < result.size(); i++){
         cout<<result[i]<<" ";
     }

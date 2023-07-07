@@ -6,7 +6,7 @@ vector<int> nge(vector<int> &arr){
     stack<int> idx;
     idx.push(0);
     for(int i = 1; i < n; i++){
-        while(not idx.empty() and arr[i] > arr[idx.top()]){
+        while(not idx.empty() and arr[i] < arr[idx.top()]){
             output[idx.top()] = arr[i];
             idx.pop();
         } 
@@ -23,7 +23,9 @@ int main(){
         cin>>x;
         v.push_back(x);
     }
+    reverse(v.begin(),v.end());
     vector<int> result = nge(v);
+    reverse(result.begin(),result.end());
     for(int i = 0; i < result.size(); i++){
         cout<<result[i]<<" ";
     }
