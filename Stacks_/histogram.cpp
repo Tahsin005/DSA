@@ -7,20 +7,20 @@ int histogram(vector<int> &v){
     idx.push(0);
     for(int i = 1; i < n; i++){
         while(not idx.empty() and v[i] < v[idx.top()]){
-            int el = v[idx.top()];
+            int bar_length = v[idx.top()];
             idx.pop();
-            int nsi = i;
-            int psi = (idx.empty())? -1 : idx.top();
-            ans = max(ans , el * (nsi - psi -1));
+            int next_smaller_element = i;
+            int previous_smaller_element = (idx.empty())? -1 : idx.top();
+            ans = max(ans , bar_length * (next_smaller_element - previous_smaller_element -1));
         }
         idx.push(i);
     }
     while(not idx.empty()){
-        int el = v[idx.top()];
+        int bar_length = v[idx.top()];
         idx.pop();
-        int nsi = n;
-        int psi = (idx.empty())? -1 : idx.top();
-        ans = max(ans , el * (nsi - psi -1));
+        int next_smaller_element = n;
+        int previous_smaller_element = (idx.empty())? -1 : idx.top();
+        ans = max(ans , bar_length * (next_smaller_element - previous_smaller_element -1));
     }
     return ans;
 // 13
