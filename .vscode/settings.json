@@ -22,7 +22,8 @@
         "regex": "cpp",
         "sstream": "cpp",
         "random": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "string": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }
