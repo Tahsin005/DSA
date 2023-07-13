@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+    public:
+        int val;
+        Node* left;
+        Node* right;
+        Node(int val){
+            this->val = val;
+            this->left = NULL;
+            this->right = NULL;
+        }
+};
+Node* input_tree(){
+    int val;
+    cin>>val;
+    Node* root;
+    if(val == -1) root = NULL;
+    else root = new Node(val);
+    queue<Node*> q;
+    if(root) q.push(root);
+    while(!q.empty()){
+        // 1. ber kore ano
+        Node* p = q.front();
+        q.pop();
+
+        // 2. jabotiyo ja kaj ache ekhane koro
+        int l,r;
+        cin>>l>>r;
+        Node* myLeft;
+        Node* myRight;
+        if(l == -1) myLeft = NULL;
+        else myLeft = new Node(l);
+        if(r == -1) myRight = NULL;
+        else myRight = new Node(r);
+        // Connection
+        p->left = myLeft;
+        p->right = myRight;
+
+        // 3. tar children k line e rakho
+        if(p->left) q.push(p->left);
+        if(p->right) q.push(p->right);
+    }
+    return root;
+}
+int max_height(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int l = max_height(root->left);
+    int r = max_height(root->right);
+    return max(l,r) + 1;
+}
+bool isPerfectTree(Node* root){
+    if(root == NULL){
+        return true;
+    }
+    queue<Node*> q;
+    q.push(root);
+
+    int height = max_height(root);
+    int currentLevel = 1;
+
+    while(!q.empty()){
+        int size = q.size();
+
+        for(int i = 0; i < size; i++){
+            // while(size--){
+            Node* f = q.front();
+            q.pop();
+
+            if(f->left == NULL && f->right == NULL){
+                if(currentLevel != height){
+                    return false;
+                }
+            }
+            else if(f->left == NULL || f->right == NULL){
+                return false;
+            }
+
+            if(f->left) q.push(f->left);
+            if(f->right) q.push(f->right);
+        }
+        currentLevel++;
+    }
+    return true;
+}
+int main(){
+    Node* root = input_tree();
+    // cout<<max_height(root);
+    if(isPerfectTree(root)) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    return 0;
+}
