@@ -23,7 +23,8 @@
         "sstream": "cpp",
         "random": "cpp",
         "complex": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "vector": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }
