@@ -11,6 +11,9 @@ int main(){
     cin>>x;
     int l=0,r=n-1;
     bool flag=false;
+    /*
+    Time complexity - O(logN)
+    */
     while(l<=r){
         int mid_index=(l+r)/2;
         if(a[mid_index]==x){
