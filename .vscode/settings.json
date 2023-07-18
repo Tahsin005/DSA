@@ -24,7 +24,8 @@
         "random": "cpp",
         "complex": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cstddef": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }
