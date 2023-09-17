@@ -47,7 +47,7 @@ int main(){
     h->right = i;
 
     /*
-    left sub-tree -> rootright -> sub-tree  
+    left sub-tree -> root -> right sub-tree  
     */
     inorder(root);
     return 0;
